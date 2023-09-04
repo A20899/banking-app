@@ -68,7 +68,7 @@ function showData() {
         html += "<td>" + element.email + "</td>";
         html += "<td>" + element.password + "</td>";
         html += "<td>" + "Php " + parseFloat(element.balance) + "</td>";
-        html += '<td><button onclick="deleteData(' + index + ')" class="btn btn-danger">Delete</button> <button onclick="updateData(' + index + ')" class="btn btn-warning m-2">Edit</button> <button onclick="userProfile(' + index + ')"class="btn btn-success m-2">Budget</button></td>';
+        html += '<td><button onclick="deleteData(' + index + ')" class="btn btn-danger">Delete</button>  <button onclick="userProfile(' + index + ')"class="btn btn-success m-2">Budget</button></td>';
 
         html += "</tr>";
 
@@ -79,32 +79,23 @@ function showData() {
         optionsRecipient += "<option>" + element.name + "</option>";
     });
 
-    // Update the table body with client data
     var crudTableBody = document.querySelector("#crudTable tbody");
     crudTableBody.innerHTML = html;
 
-    // Update the select element with account names
     var accountNameSelect = document.querySelector("#account-name");
     accountNameSelect.innerHTML = options;
 
-
-    // Update the select element with account names - withdraw
     var accountNameSelectWithdraw = document.querySelector("#account-name-withdraw");
     accountNameSelectWithdraw.innerHTML = optionsWithdraw;
 
-    // Update the select element with account names - transfer sender
     var accountNameSelectTransferSender = document.querySelector("#account-name-sender");
     accountNameSelectTransferSender.innerHTML = optionsSender;
 
-    // Update the select element with account names - transfer recipient
     var accountNameSelectTransferRecipient = document.querySelector("#account-name-recipient");
     accountNameSelectTransferRecipient.innerHTML = optionsRecipient;
-
-
 }
 
     
-//loads all data when document or page loaded 
 document.onload = showData();
 
 function AddData() {
@@ -140,8 +131,6 @@ function AddData() {
         document.getElementById("balance").value = "";
     }
 }
-
-
 
 
 
