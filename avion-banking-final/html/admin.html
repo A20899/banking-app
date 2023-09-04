@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Avion Banking</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <!--NAVIGATION-->
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">Avion Banking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html/admin.html">Clients</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/html/deposit.html">Deposit</a></li>
+                            <li><a class="dropdown-item" href="/html/withdraw.html">Withdraw</a></li>
+                            <li><a class="dropdown-item" href="/html/transfer.html">Transfer</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/html/login.html">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!--CREATE USER FORM-->
+
+    <div class="create-user-container" style="display: none;">
+        <div class="create-user-heading">
+            <h2>Create New User</h2>
+        </div>
+        <form>
+
+            <!--NAME-->
+            <div class="form-floating mb-3">
+                <input type="name" class="form-control" id="name" placeholder="name@example.com">
+                <label for="floatingInput">Name</label>
+            </div>
+
+            <!--EMAIL-->
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+
+            <!--PASSWORD-->
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+
+            <!--BALANCE-->
+            <div class="form-floating">
+                <input type="number" class="form-control" id="balance" placeholder="name@example.com">
+                <label for="floatingInput">Balance</label>
+            </div>
+
+            <!--SUBMIT-->
+            <a href="/pages/client.html"><button type="submit" class="btn btn-primary" onclick="AddData()"
+                    style="display: block;" id="Submit">Create User</button></a>
+            <button class="btn btn-primary" id="Update" style="display: none;">Update</button>
+
+        </form>
+    </div>
+
+
+    <!--CLIENT LIST TABLE-->
+    <div class="client-container">
+        <div class="client-heading">
+            <h1>Clients</h1>
+            <!--UNIQUE FEATURE #1: SEARCH FOR CLIENT-->
+            <input type="text" id="searchInput" name="Search" placeholder="Search">
+        </div>
+
+        <div class="new-client-btn">
+            <button type="button" class="btn btn-primary" id="create-client" onclick="createClient()">Create New Client</button>
+        </div>
+
+        <div class="client-table">
+            <table class="table table-hover table table-bordered" id="crudTable">
+                <thead>
+                    <tr>
+                        <th scope="col">NAME</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">PASSWORD</th>
+                        <th scope="col">BALANCE</th>
+                        <th scope="col">ACTIONS</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Dynamically Create Users-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="/js/admin.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/userprofile.js"></script>
+</body>
+
+</html>

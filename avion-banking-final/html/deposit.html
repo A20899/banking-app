@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Avion Banking</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <!--NAVIGATION-->
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">Avion Banking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html/admin.html">Clients</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/html/deposit.html">Deposit</a></li>
+                            <li><a class="dropdown-item" href="/html/withdraw.html">Withdraw</a></li>
+                            <li><a class="dropdown-item" href="/html/transfer.html">Transfer</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/html/login.html">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+    
+            </div>
+        </div>
+    </nav>
+
+    <!--DEPOSIT FORM-->
+    <div class="transaction-forms">
+        <form id="transactions">
+            <fieldset>
+                <div class="transaction-heading">
+                    <h1>Deposit to Account</h1>
+                    <a href="/html/admin.html">Back to Client List</a>
+
+                </div>
+        
+                <div class="mb-3">
+                    <label class="form-label">Account Name</label>
+                    <select class="form-select" id="account-name">
+                        <!--dynamically load list of users here-->
+        
+                    </select>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">Amount</label>
+                    <input type="number" id="deposit-amount" class="form-control" placeholder="Input Amount">
+                </div>
+        
+                <button type="submit" onclick="deposit()" class="btn btn-primary">Deposit</button>
+            </fieldset>
+        </form>
+
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="/js/deposit.js"></script>
+
+
+
+</body>
+
+</html>
