@@ -28,11 +28,6 @@ function validateForm() {
         return false;
     }
 
-    if (userAlreadyExists(name, email)) {
-        alert("This user already exists");
-        return false;
-    }
-
     if (/^\d/.test(name)) {
         alert("Name cannot start with a number");
         return false;
@@ -68,7 +63,7 @@ function showData() {
         html += "<td>" + element.email + "</td>";
         html += "<td>" + element.password + "</td>";
         html += "<td>" + "Php " + parseFloat(element.balance) + "</td>";
-        html += '<td><button onclick="deleteData(' + index + ')" class="btn btn-danger">Delete</button>  <button onclick="userProfile(' + index + ')"class="btn btn-success m-2">Budget</button></td>';
+        html += '<td><button onclick="deleteData(' + index + ')" class="btn btn-danger">Delete</button> <button onclick="updateData(' + index + ')" class="btn btn-warning m-2">Edit</button> <button onclick="userProfile(' + index + ')"class="btn btn-success m-2">Budget</button></td>';
 
         html += "</tr>";
 
@@ -93,9 +88,11 @@ function showData() {
 
     var accountNameSelectTransferRecipient = document.querySelector("#account-name-recipient");
     accountNameSelectTransferRecipient.innerHTML = optionsRecipient;
+
 }
 
     
+//loads all data when document or page loaded 
 document.onload = showData();
 
 function AddData() {
@@ -131,7 +128,6 @@ function AddData() {
         document.getElementById("balance").value = "";
     }
 }
-
 
 
 function deleteData(index) {
@@ -200,15 +196,11 @@ function userProfile(index) {
         clientlist = JSON.parse(localStorage.getItem("clientlist"));
     }
 
-    // Check if the index is valid
     if (index >= 0 && index < clientlist.length) {
-        // Get the user's data
         var user = clientlist[index];
 
-        // Store the selected user's data in localStorage
         localStorage.setItem("selectedUser", JSON.stringify(user));
 
-        // Redirect to userprofile.html
         window.location.href = "/html/userprofile.html";
     }
 }
