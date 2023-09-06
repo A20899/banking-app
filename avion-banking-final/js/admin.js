@@ -90,9 +90,7 @@ function showData() {
     accountNameSelectTransferRecipient.innerHTML = optionsRecipient;
 
 }
-
     
-//loads all data when document or page loaded 
 document.onload = showData();
 
 function AddData() {
@@ -188,7 +186,8 @@ function updateData(index) {
         }
     }
 }
-function userProfile(index) {
+
+/* function userProfile(index) {
     var clientlist;
     if (localStorage.getItem("clientlist") == null) {
         clientlist = [];
@@ -203,5 +202,6 @@ function userProfile(index) {
 
         window.location.href = "/html/userprofile.html";
     }
-}
+}*/
+
 

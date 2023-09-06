@@ -1,6 +1,23 @@
 var selectedUserData = localStorage.getItem("selectedUser");
 var user;
 
+function userProfile(index) {
+    var clientlist;
+    if (localStorage.getItem("clientlist") == null) {
+        clientlist = [];
+    } else {
+        clientlist = JSON.parse(localStorage.getItem("clientlist"));
+    }
+
+    if (index >= 0 && index < clientlist.length) {
+        var user = clientlist[index];
+
+        localStorage.setItem("selectedUser", JSON.stringify(user));
+
+        window.location.href = "/html/userprofile.html";
+    }
+}
+
 if (selectedUserData) {
     user = JSON.parse(selectedUserData);
     var userProfileContainer = document.querySelector(".user-profile-container");
@@ -73,7 +90,7 @@ function addExpense() {
     userExpenses.push(expense);
 
     selectedUser.balance -= expenseAmount;
-    updateBalance(selectedUser.balance); // Update the balance
+    updateBalance(selectedUser.balance); 
 
     localStorage.setItem(selectedUser.name + '_expenses', JSON.stringify(userExpenses));
 
